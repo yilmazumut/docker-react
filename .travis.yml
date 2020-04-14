@@ -1,0 +1,9 @@
+sudo: required
+services:
+  - docker
+
+before_install:
+  - docker build -t umutyilmaz/docker-react -f Dockerfile.dev .
+
+script:
+  - docker run umutyilmaz/docker-react npm run test -- --coverage
